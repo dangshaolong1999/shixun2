@@ -2,12 +2,31 @@
   "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/index/index",
-      "style": {}
+      "style": {
+        "navigationBarBackgroundColor": "#345DC2",
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "bounce": "none",
+          "titleNView": {
+            "type": "transparent",
+            "searchInput": {
+              "align": "center",
+              "borderRadius": "30rpx",
+              "backgroundColor": "#f0f1f2",
+              "placeholder": "搜索你想要的内容",
+              "placeholderColor": "#979c9d",
+              "disabled": true
+            }
+          }
+        }
+      }
     },
     {
       "path": "pages/category/category",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "分类",
+        "navigationBarBackgroundColor": "#345DC2",
+        "navigationBarTextStyle": "white"
       }
     },
     {
@@ -35,10 +54,7 @@
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8",
-    "app-plus": {
-      "titleNView": false
-    }
+    "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "color": "#b0abb3",

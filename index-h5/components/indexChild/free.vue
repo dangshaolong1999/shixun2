@@ -1,13 +1,13 @@
 <template>
-  <view class="hot-box">
+  <view class="free-box">
     <view class="header-box">
-      <view class="hot-title">
-        <span>热门推荐</span>
+      <view class="free-title">
+        <span>免费精选</span>
         <view class="font">123</view>
       </view>
       <view class="right">全部></view>
     </view>
-    <view class="course-item" v-for="item in hot" :key="item.id">
+    <view class="course-item" v-for="item in free" :key="item.id">
       <view class="item-left">
         <image class="course-img" :src="item.mainImage" mode=""></image>
         <view class="course-time">{{ item.totalTime }}</view>
@@ -19,7 +19,7 @@
           <view class="count">
             <view v-if="item.isFree == 0" class="money">免费</view>
             <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
-            <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+            <view class="study iconfont icon-video">{{ item.commTotal }}人在学</view>
           </view>
         </view>
       </view>
@@ -29,20 +29,20 @@
 
 <script>
   export default {
-    props: ['hot'],
+    props: ['free'],
   }
 </script>
 
 <style lang="scss">
-  .hot-box {
+  .free-box {
+    margin-top: 30rpx;
+
     .header-box {
       width: 100%;
-      height: 100rpx;
-      line-height: 100rpx;
       display: flex;
       justify-content: space-between;
 
-      .hot-title {
+      .free-title {
         margin-left: 20rpx;
 
         span {

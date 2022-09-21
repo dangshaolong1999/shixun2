@@ -1,6 +1,6 @@
 <template>
   <view class="uni-search-box">
-    <input class="uni-input" placeholder="搜索你想要的内容" disabled />
+    <input class="uni-input iconfont icon-search" placeholder="搜索你想要的内容" disabled />
   </view>
 </template>
 

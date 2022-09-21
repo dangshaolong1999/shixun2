@@ -1,40 +1,66 @@
 <template>
-  <view class="hot-box">
+  <view class="new-box">
     <view class="header-box">
-      <view class="hot-title">
-        <span>热门推荐</span>
+      <view class="new-title">
+        <span>近期上新</span>
         <view class="font">123</view>
       </view>
       <view class="right">全部></view>
     </view>
-    <view class="course-item" v-for="item in hot" :key="item.id">
-      <view class="item-left">
-        <image class="course-img" :src="item.mainImage" mode=""></image>
-        <view class="course-time">{{ item.totalTime }}</view>
-      </view>
-      <view class="item-right">
-        <view class="title">{{ item.title }}</view>
-        <view class="info">
-          <view class="nickname iconfont icon-laoshi2">{{ item.nickName }}</view>
-          <view class="count">
-            <view v-if="item.isFree == 0" class="money">免费</view>
-            <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
-            <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+    <scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
+      <view id="demo1" class="scroll-view-item_H uni-bg-red" v-for="item in new" :key="item.id">
+        <view class="course-item">
+          <view class="item-left">
+            <image class="course-img" :src="item.mainImage" mode=""></image>
+            <view class="course-time">{{ item.totalTime }}</view>
+          </view>
+          <view class="item-right">
+            <view class="title">{{ item.title }}</view>
+            <view class="info">
+              <view class="nickname iconfont icon-laoshi2">{{ item.nickName }}</view>
+              <view class="count">
+                <view v-if="item.isFree == 0" class="money">免费</view>
+                <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
+                <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+              </view>
+            </view>
           </view>
         </view>
       </view>
-    </view>
+    </scroll-view>
   </view>
 </template>
 
 <script>
   export default {
-    props: ['hot'],
+    props: ['new'],
   }
 </script>
 
 <style lang="scss">
-  .hot-box {
+  .new-box {
+    .scroll-Y {
+      height: 300rpx;
+    }
+
+    .scroll-view_H {
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .scroll-view-item {
+      height: 300rpx;
+      font-size: 36rpx;
+    }
+
+    .scroll-view-item_H {
+      display: inline-block;
+      width: 35%;
+      margin: 0 35rpx;
+      height: 300rpx;
+      font-size: 36rpx;
+    }
+
     .header-box {
       width: 100%;
       height: 100rpx;
@@ -42,7 +68,7 @@
       display: flex;
       justify-content: space-between;
 
-      .hot-title {
+      .new-title {
         margin-left: 20rpx;
 
         span {
@@ -64,11 +90,7 @@
     }
 
     .course-item {
-      display: flex;
-      justify-content: space-around;
-      // flex-direction: column;
       width: 100%;
-      padding: 20rpx 0;
       border-bottom: 1rpx solid #f1f1f1;
 
       .item-left {

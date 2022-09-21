@@ -19,9 +19,21 @@ const getNewList = (msg) => {
   let data = http.post('course/api/course/search', msg)
   return data
 }
+/**获取免费精品数据*/
+const getFreeList = (msg) => {
+  let data = http.post('course/api/course/search', msg)
+  return data
+}
+/**获取付费精品数据*/
+const getisFreeList = (msg) => {
+  let data = http.post('course/api/course/search', msg)
+  return data
+}
 export {
   getbanner,
   getHotList,
   getNewList,
-  getCategory
+  getCategory,
+  getFreeList,
+  getisFreeList
 }

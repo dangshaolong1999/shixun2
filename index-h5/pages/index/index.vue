@@ -1,7 +1,7 @@
 <template>
   <view class="content">
-    <!-- 顶部搜索 -->
-    <search-box></search-box>
+    <!-- 返回顶部 -->
+    <back-top :top='scrollTop'></back-top>
     <!-- 轮播图 -->
     <banner-box :swipeList="swipe"></banner-box>
     <div class="category-box">
@@ -9,13 +9,22 @@
       <div class="list-item">全部分类</div>
     </div>
     <hot-box :hot='hotList'></hot-box>
+    <new-box :new='newList'></new-box>
+    <free-box :free='freeList'></free-box>
+    <isfree-box :isfree='isFreeList'></isfree-box>
   </view>
 </template>
 
 <script>
-  import SearchBox from '@/components/common/search.vue'
   import BannerBox from '@/components/common/banner.vue'
   import HotBox from '@/components/indexChild/hot.vue'
+  import NewBox from '@/components/indexChild/new.vue'
+  import FreeBox from '@/components/indexChild/free.vue'
+  import IsfreeBox from '@/components/indexChild/isfree.vue'
+  import BackTop from '@/components/common/Back-top.vue'
+  import {
+    onPageScroll
+  } from '@dcloudio/uni-app'
   import {
     ref,
     reactive,
@@ -24,30 +33,45 @@
   import {
     getbanner,
     getCategory,
-    getHotList
+    getHotList,
+    getNewList,
+    getFreeList,
+    getisFreeList
   } from '@/api/index.js'
   export default {
     components: {
       BannerBox,
-      SearchBox,
-      HotBox
+      HotBox,
+      NewBox,
+      FreeBox,
+      IsfreeBox,
+      BackTop
     },
     setup(props, context) {
-      let bannerList = reactive({
+      let data = reactive({
         /** 轮播图 */
         swipe: [],
         /** 全部分类 */
         categoryList: [],
         /** 热门推荐 */
-        hotList: []
+        hotList: [],
+        /** 近期上新 */
+        newList: [],
+        /** 免费精品 */
+        freeList: [],
+        /** 付费精品 */
+        isFreeList: [],
+        moer: Boolean,
+        /** 滚动高度 */
+        scrollTop: 0
       })
       /** 请求轮播图数据 */
       getbanner().then(res => {
-        bannerList.swipe = res.data.data
+        data.swipe = res.data.data
       })
       /** 请求全部分类 */
       getCategory().then(res => {
-        bannerList.categoryList = res.data.data.slice(0, 7)
+        data.categoryList = res.data.data.slice(0, 7)
       })
       /** 请求热门推荐 */
       getHotList({
@@ -55,11 +79,54 @@
         current: 1,
         size: 10
       }).then(res => {
-        console.log(res);
-        bannerList.hotList = res.data.data
+        data.hotList = res.data.data.records
+      })
+      /** 请求近期上新 */
+      getNewList({
+        sort: 'new',
+        current: 1,
+        size: 10
+      }).then(res => {
+        data.newList = res.data.data.records
+      })
+      /** 请求免费精品 */
+      getFreeList({
+        isFree: 1,
+        current: 1,
+        size: 10
+      }).then(res => {
+        data.freeList = res.data.data.records
+      })
+      /** 请求付费精品 */
+      getisFreeList({
+        isFree: 0,
+        current: 1,
+        size: 10
+      }).then(res => {
+        data.isFreeList = res.data.data.records
+      })
+      window.onscroll = function() {
+        let clientHeight = document.documentElement.clientHeight;
+        let scrollHeight = document.body.scrollHeight;
+        let scrollTop = document.documentElement.scrollTop;
+        if (data.isFreeList.length < 60) {
+
+        } else {
+          data.moer = true
+        }
+        if (scrollTop + clientHeight >= scrollHeight) {
+          getisFreeList().then(res => {
+            if (data.isFreeList.length < 60) {
+              data.isFreeList = [...data.isFreeList, ...res.data.data.records]
+            }
+          })
+        }
+      }
+      onPageScroll((e) => {
+        data.scrollTop = e.scrollTop
       })
       return {
-        ...toRefs(bannerList),
+        ...toRefs(data),
       }
     }
   }
