@@ -109,9 +109,7 @@
         let clientHeight = document.documentElement.clientHeight;
         let scrollHeight = document.body.scrollHeight;
         let scrollTop = document.documentElement.scrollTop;
-        if (data.isFreeList.length < 60) {
-
-        } else {
+        if (data.isFreeList.length < 60) {} else {
           data.moer = true
         }
         if (scrollTop + clientHeight >= scrollHeight) {

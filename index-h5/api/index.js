@@ -29,11 +29,47 @@ const getisFreeList = (msg) => {
   let data = http.post('course/api/course/search', msg)
   return data
 }
+/** 获取阅读头部数据 */
+const getReadHeader = () => {
+  let data = http.get('article/api/category/label/list ')
+  return data
+}
+/**获取阅读分类推荐数据*/
+const getReadList = (msg) => {
+  let data = http.post('article/api/article/search', msg)
+  return data
+}
+/** 获取切换分类数据 */
+const changeReadList = (msg) => {
+  let data = http.post('article/api/article/search', msg)
+  return data
+}
+/** 获取热门回答数据*/
+const getHotanswer = (msg) => {
+  let data = http.post('question/api/question/hot', msg)
+  return data
+}
+/** 获取最新问题数据*/
+const getLatest = (msg) => {
+  let data = http.post('question/api/question/new', msg)
+  return data
+}
+/** 获取等待回答数据*/
+const getWaitanswer = (msg) => {
+  let data = http.post('question/api/question/wait', msg)
+  return data
+}
 export {
   getbanner,
   getHotList,
   getNewList,
   getCategory,
   getFreeList,
-  getisFreeList
+  getisFreeList,
+  getReadList,
+  getReadHeader,
+  changeReadList,
+  getHotanswer,
+  getLatest,
+  getWaitanswer
 }

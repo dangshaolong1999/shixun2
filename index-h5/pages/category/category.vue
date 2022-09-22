@@ -2,11 +2,12 @@
   <view class="category-box">
     <scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y" @scrolltoupper="upper" @scrolltolower="lower"
       @scroll="scroll">
-      <view id="demo1" class="scroll-view-item uni-bg-red" v-for="item in categoryList" :key="item.id">{{ item.name }}
+      <view @click="changeItem(item)" id="demo1" class="scroll-view-item uni-bg-red" v-for="item in categoryList"
+        :key="item.id">{{ item.name }}
       </view>
     </scroll-view>
     <view class="category-right">
-      右侧
+      <view class="list-item" v-for="item in catetoryItem" :key="item.id">{{ item.name }}</view>
     </view>
   </view>
 </template>
@@ -23,14 +24,22 @@
     setup() {
       let data = reactive({
         /** 全部分类 */
-        categoryList: []
+        categoryList: [],
+        /** 分类子项*/
+        catetoryItem: [],
       })
       /** 请求全部分类 */
       getCategory().then(res => {
         data.categoryList = res.data.data
+        data.catetoryItem = data.categoryList[0].labelList
       })
+      /** 点击左侧改变右侧数据 */
+      const changeItem = (item) => {
+        data.catetoryItem = item.labelList
+      }
       return {
         ...toRefs(data),
+        changeItem
       }
     }
   }
@@ -50,6 +59,7 @@
     }
 
     .scroll-view-item {
+      width: 180rpx;
       height: 200rpx;
       text-align: center;
       font-size: 36rpx;
@@ -60,6 +70,19 @@
       display: inline-block;
       text-align: center;
       font-size: 36rpx;
+    }
+
+    .category-right view {
+      width: 150rpx;
+      height: 80rpx;
+      font-size: 20rpx;
+      border: 1px solid #ccc;
+      float: left;
+      margin-top: 30rpx;
+      margin-left: 25rpx;
+      text-align: center;
+      line-height: 80rpx;
+      border-radius: 40rpx;
     }
   }
 </style>

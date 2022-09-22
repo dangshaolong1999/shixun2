@@ -28,6 +28,10 @@
 </template>
 
 <script>
+  import {
+    reactive,
+    toRefs
+  } from "vue"
   export default {
     props: ['hot'],
   }
@@ -35,6 +39,28 @@
 
 <style lang="scss">
   .hot-box {
+    .scroll-Y {
+      height: 300rpx;
+    }
+
+    .scroll-view_H {
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    .scroll-view-item {
+      height: 300rpx;
+      font-size: 36rpx;
+    }
+
+    .scroll-view-item_H {
+      display: inline-block;
+      width: 35%;
+      margin: 0 35rpx;
+      height: 300rpx;
+      font-size: 36rpx;
+    }
+
     .header-box {
       width: 100%;
       height: 100rpx;

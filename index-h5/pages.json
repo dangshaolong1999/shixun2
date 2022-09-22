@@ -1,6 +1,5 @@
 {
-  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-    {
+  "pages": [{
       "path": "pages/index/index",
       "style": {
         "navigationBarBackgroundColor": "#345DC2",
@@ -26,25 +25,75 @@
       "style": {
         "navigationBarTitleText": "分类",
         "navigationBarBackgroundColor": "#345DC2",
-        "navigationBarTextStyle": "white"
+        "navigationBarTextStyle": "white",
+        "app-plus": {
+          "bounce": "none",
+          "titleNView": {
+            "buttons": [{
+              "color": "#ffffff",
+              "fontSize": "18",
+              "fontSrc": "/static/icon/iconfont.ttf",
+              "text": "\ue608",
+              "float": "right"
+            }]
+          }
+        }
       }
     },
     {
       "path": "pages/article/article",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "阅读",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#345DC2",
+        "app-plus": {
+          "titleNView": {
+            "searchInput": {
+              "align": "center",
+              "backgroundColor": "#F0F1F2",
+              "borderRadius": "30rpx",
+              "placeholder": "搜索你想要的内容",
+              "placeholderColor": "#979C9D",
+              "disabled": true
+            }
+          }
+        }
       }
     },
     {
       "path": "pages/question/question",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "问答",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#345DC2",
+        "app-plus": {
+          "titleNView": {
+            "searchInput": {
+              "align": "center",
+              "backgroundColor": "#F0F1F2",
+              "borderRadius": "30rpx",
+              "placeholder": "搜索你想要的内容",
+              "placeholderColor": "#979C9D",
+              "disabled": true
+            }
+          }
+        }
       }
     },
     {
       "path": "pages/my/my",
       "style": {
-        "navigationBarTitleText": ""
+        "navigationBarTitleText": "我的",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#345DC2",
+        "backgroundColorTop": "#345DC2",
+        "backgroundColorBottom": "#FFFFFF",
+        "app-plus": {
+          "scrollIndicator": "none", //隐藏滚动条
+          "titleNView": {
+            "type": "transparent" // 滚动透明渐变
+          }
+        }
       }
     }
   ],

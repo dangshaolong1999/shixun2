@@ -1,7 +1,7 @@
 <template>
   <view class="uni-margin-wrap">
-    <swiper class="swiper" circular indicator-dots="true" indicator-active-color="#fff" autoplay="true"
-      @change="changeBack" :style="backgrundColor">
+    <swiper class="swiper" indicator-dots="true" indicator-active-color="#fff" autoplay="true" @change="changeBack"
+      :style="backgrundColor">
       <swiper-item v-for="item,index in swipeList" :key="index">
         <view class="swiper-item uni-bg-red">
           <image :src="item.imageUrl"></image>
