@@ -92,7 +92,7 @@
           data.moer = true
         }
         if (scrollTop + clientHeight >= scrollHeight) {
-          getReadList().then(res => {
+          getHotanswer().then(res => {
             if (data.questionList.length < 60) {
               data.questionList = [...data.questionList, ...res.data.data.records]
             }

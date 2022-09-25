@@ -125,7 +125,7 @@
   }
 
   .scroll-view-item {
-    font-size: 36rpx;
+    font-size: 30rpx;
   }
 
   .scroll-view-item_H {
@@ -170,7 +170,7 @@
       box-sizing: border-box;
 
       .title {
-        font-size: 40rpx;
+        font-size: 36rpx;
         font-weight: 700;
       }
 
@@ -179,7 +179,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         color: #d7d7d7;
-        font-size: 26rpx;
+        font-size: 22rpx;
       }
 
       .info {
@@ -189,12 +189,12 @@
         line-height: 40rpx;
 
         .name {
-          font-size: 30rpx;
+          font-size: 26rpx;
         }
 
         .time,
         .good {
-          font-size: 26rpx;
+          font-size: 22rpx;
           margin-left: 10rpx;
         }
       }

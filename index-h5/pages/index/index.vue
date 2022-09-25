@@ -8,9 +8,9 @@
       <div class="list-item" v-for="item in categoryList" :key="item.id">{{ item.name }}</div>
       <div class="list-item">全部分类</div>
     </div>
-    <hot-box :hot='hotList'></hot-box>
+    <hot-box :hot1='hotList1' :hot2="hotList2"></hot-box>
     <new-box :new='newList'></new-box>
-    <free-box :free='freeList'></free-box>
+    <free-box :free1='freeList1' :free2="freeList2"></free-box>
     <isfree-box :isfree='isFreeList'></isfree-box>
   </view>
 </template>
@@ -54,11 +54,13 @@
         /** 全部分类 */
         categoryList: [],
         /** 热门推荐 */
-        hotList: [],
+        hotList1: [],
+        hotList2: [],
         /** 近期上新 */
         newList: [],
         /** 免费精品 */
-        freeList: [],
+        freeList1: [],
+        freeList2: [],
         /** 付费精品 */
         isFreeList: [],
         moer: Boolean,
@@ -79,7 +81,8 @@
         current: 1,
         size: 10
       }).then(res => {
-        data.hotList = res.data.data.records
+        data.hotList1 = res.data.data.records.slice(0, 5)
+        data.hotList2 = res.data.data.records.slice(5, 10)
       })
       /** 请求近期上新 */
       getNewList({
@@ -95,7 +98,8 @@
         current: 1,
         size: 10
       }).then(res => {
-        data.freeList = res.data.data.records
+        data.freeList1 = res.data.data.records.slice(0, 5)
+        data.freeList2 = res.data.data.records.slice(5, 10)
       })
       /** 请求付费精品 */
       getisFreeList({

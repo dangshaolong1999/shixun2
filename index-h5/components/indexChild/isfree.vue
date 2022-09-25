@@ -3,7 +3,6 @@
     <view class="header-box">
       <view class="isfree-title">
         <span>付费精品</span>
-        <view class="font">123</view>
       </view>
       <view class="right">全部></view>
     </view>

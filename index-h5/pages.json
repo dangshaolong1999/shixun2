@@ -83,17 +83,17 @@
     {
       "path": "pages/my/my",
       "style": {
-        "navigationBarTitleText": "我的",
+        "navigationBarTitleText": "",
         "navigationBarTextStyle": "white",
         "navigationBarBackgroundColor": "#345DC2",
         "backgroundColorTop": "#345DC2",
-        "backgroundColorBottom": "#FFFFFF",
-        "app-plus": {
-          "scrollIndicator": "none", //隐藏滚动条
-          "titleNView": {
-            "type": "transparent" // 滚动透明渐变
-          }
-        }
+        "backgroundColorBottom": "#FFFFFF"
+        // "app-plus": {
+        //   "scrollIndicator": "none",
+        //   "titleNView": {
+        //     "type": "transparent"
+        //   }
+        // }
       }
     }
   ],

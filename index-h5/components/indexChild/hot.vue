@@ -3,27 +3,49 @@
     <view class="header-box">
       <view class="hot-title">
         <span>热门推荐</span>
-        <view class="font">123</view>
       </view>
       <view class="right">全部></view>
     </view>
-    <view class="course-item" v-for="item in hot" :key="item.id">
-      <view class="item-left">
-        <image class="course-img" :src="item.mainImage" mode=""></image>
-        <view class="course-time">{{ item.totalTime }}</view>
-      </view>
-      <view class="item-right">
-        <view class="title">{{ item.title }}</view>
-        <view class="info">
-          <view class="nickname iconfont icon-laoshi2">{{ item.nickName }}</view>
-          <view class="count">
-            <view v-if="item.isFree == 0" class="money">免费</view>
-            <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
-            <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+    <scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
+      <view id="demo1" class="scroll-view-item_H uni-bg-red">
+        <view class="course-item" v-for="item in hot1" :key="item.id">
+          <view class="item-left">
+            <image class="course-img" :src="item.mainImage" mode=""></image>
+            <view class="course-time">{{ item.totalTime }}</view>
+          </view>
+          <view class="item-right">
+            <view class="title">{{ item.title }}</view>
+            <view class="info">
+              <view class="nickname iconfont icon-laoshi2">{{ item.nickName }}</view>
+              <view class="count">
+                <view v-if="item.isFree == 0" class="money">免费</view>
+                <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
+                <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+              </view>
+            </view>
           </view>
         </view>
       </view>
-    </view>
+      <view id="demo2" class="scroll-view-item_H uni-bg-red">
+        <view class="course-item" v-for="item in hot2" :key="item.id">
+          <view class="item-left">
+            <image class="course-img" :src="item.mainImage" mode=""></image>
+            <view class="course-time">{{ item.totalTime }}</view>
+          </view>
+          <view class="item-right">
+            <view class="title">{{ item.title }}</view>
+            <view class="info">
+              <view class="nickname iconfont icon-laoshi2">{{ item.nickName }}</view>
+              <view class="count">
+                <view v-if="item.isFree == 0" class="money">免费</view>
+                <view v-else class="money iconfont icon-moneybag">{{ item.priceOriginal || item.priceDiscount }}</view>
+                <view class="iconfont icon-video">{{ item.commTotal }}人在学</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 </template>
 
@@ -33,7 +55,7 @@
     toRefs
   } from "vue"
   export default {
-    props: ['hot'],
+    props: ['hot1', 'hot2'],
   }
 </script>
 
@@ -49,15 +71,13 @@
     }
 
     .scroll-view-item {
-      height: 300rpx;
+      text-align: center;
       font-size: 36rpx;
     }
 
     .scroll-view-item_H {
       display: inline-block;
-      width: 35%;
-      margin: 0 35rpx;
-      height: 300rpx;
+      width: 100%;
       font-size: 36rpx;
     }
 
