@@ -1,7 +1,9 @@
 <template>
+
   <view class="content">
     <!-- 返回顶部 -->
     <back-top :top='scrollTop'></back-top>
+    <search-box @click.native="navTo('/pages/search/search')"></search-box>
     <!-- 轮播图 -->
     <banner-box :swipeList="swipe"></banner-box>
     <div class="category-box">
@@ -22,6 +24,7 @@
   import FreeBox from '@/components/indexChild/free.vue'
   import IsfreeBox from '@/components/indexChild/isfree.vue'
   import BackTop from '@/components/common/Back-top.vue'
+  import SearchBox from '@/components/common/search.vue'
   import {
     onPageScroll
   } from '@dcloudio/uni-app'
@@ -45,7 +48,8 @@
       NewBox,
       FreeBox,
       IsfreeBox,
-      BackTop
+      BackTop,
+      SearchBox
     },
     setup(props, context) {
       let data = reactive({

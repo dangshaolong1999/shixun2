@@ -1,6 +1,6 @@
 <template>
   <view class="login-wrapper">
-    <view class="login">
+    <view class="login" @click="">
       <image src="../../static/images/logo-black_03.jpg" mode=""></image>
       <view class="title">
         <span>请登录</span>

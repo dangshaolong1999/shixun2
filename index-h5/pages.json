@@ -95,6 +95,26 @@
         //   }
         // }
       }
+    },
+    {
+      "path": "pages/search/search",
+      "style": {
+        "navigationBarTitleText": "问答",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#345DC2",
+        "app-plus": {
+          "titleNView": {
+            "searchInput": {
+              "align": "center",
+              "backgroundColor": "#F0F1F2",
+              "borderRadius": "30rpx",
+              "placeholder": "搜索你想要的内容",
+              "placeholderColor": "#979C9D",
+              "disabled": true
+            }
+          }
+        }
+      }
     }
   ],
   "easycom": {
