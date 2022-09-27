@@ -1,0 +1,60 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classification/classification",
+    "pages/read/read",
+    "pages/qa/qa",
+    "pages/my/my",
+    "components/components/head-search/head-search",
+    "components/components/HotList/HotList",
+    "components/components/released/released",
+    "components/components/pay/pay",
+    "components/components/Back-top/Back-top",
+    "pages/search/search"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#007AFF",
+    "borderStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/首页-fill.png",
+        "selectedIconPath": "./static/首页-fill (1).png"
+      },
+      {
+        "pagePath": "pages/classification/classification",
+        "text": "分类",
+        "iconPath": "static/分类.png",
+        "selectedIconPath": "./static/分类 (1).png"
+      },
+      {
+        "pagePath": "pages/read/read",
+        "text": "阅读",
+        "iconPath": "./static/阅读.png",
+        "selectedIconPath": "./static/阅读 (1).png"
+      },
+      {
+        "pagePath": "pages/qa/qa",
+        "text": "问答",
+        "iconPath": "./static/问答.png",
+        "selectedIconPath": "./static/问答 (1).png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./static/我的-我的.png",
+        "selectedIconPath": "./static/我的-我的 (1).png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

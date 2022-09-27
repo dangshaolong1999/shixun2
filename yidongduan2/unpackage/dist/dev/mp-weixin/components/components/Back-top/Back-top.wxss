@@ -1,0 +1,9 @@
+
+.top {
+		position: fixed;
+		right: 20rpx;
+		top: 80%;
+		width: 80rpx;
+		height: 80rpx;
+		border-radius: 50%;
+}

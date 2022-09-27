@@ -1,0 +1,1 @@
+<view><view><view>分类</view><image src="/static/放大镜.png" alt=""></image></view><view class="box"><view class="left"><view wx:for="{{a}}" wx:for-item="item" wx:key="d" bindtap="{{item.b}}" class="{{[item.c && 'col']}}">{{item.a}}<label></label></view></view><view class="right"><view wx:for="{{b}}" wx:for-item="item" wx:key="b">{{item.a}}</view></view></view></view>

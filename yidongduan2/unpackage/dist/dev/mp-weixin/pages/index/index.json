@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "back": "../../components/components/Back-top/Back-top",
+    "pay": "../../components/components/pay/pay",
+    "released": "../../components/components/released/released",
+    "hot-list": "../../components/components/HotList/HotList",
+    "myinput": "../../components/components/head-search/head-search"
+  }
+}

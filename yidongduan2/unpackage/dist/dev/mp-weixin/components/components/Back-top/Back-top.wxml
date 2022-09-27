@@ -1,0 +1,1 @@
+<view><image class="top" bindtap="{{a}}" hidden="{{!b}}" src="https://www.mescroll.com/img/mescroll-totop.png"></image></view>

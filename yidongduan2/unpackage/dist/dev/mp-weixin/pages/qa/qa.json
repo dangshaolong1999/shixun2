@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "back": "../../components/components/Back-top/Back-top",
+    "myinput": "../../components/components/head-search/head-search"
+  }
+}
