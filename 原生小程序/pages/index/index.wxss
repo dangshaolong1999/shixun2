@@ -1,1 +1,144 @@
-/**index.wxss**/
+.top {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top .left {
+  width: 40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+
+.top .right {
+  width: 25%;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.top .right image {
+  margin-left: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.tab {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: space-evenly;
+  color: #666;
+}
+
+.swipe {
+  width: 100%;
+  height: 300rpx;
+  margin-top: 20rpx;
+  background-color: #fafafa;
+}
+
+.swipe .img {
+  width: 90%;
+  height: 300rpx;
+  margin-left: 40rpx;
+  border-radius: 40rpx;
+}
+
+.time {
+  width: 100%;
+  height: 150rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  color: #a0a7b8;
+  background-color: #fafafa;
+}
+
+.time image {
+  width: 100rpx;
+  height: 80rpx;
+}
+
+.content {
+  margin-top: 20rpx;
+}
+
+.content .title-box {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  color: #333;
+  display: flex;
+}
+
+.content .title-box .title {
+  font-size: 50rpx;
+  font-weight: 700;
+}
+
+.content .title-box .all {
+  margin-left: 270rpx;
+  font-size: 35rpx;
+}
+
+.content .list {
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.content .list .item {
+  width: 33.33%;
+  height: 350rpx;
+  background-color: #eaeaea;
+  text-align: center;
+  margin-left: 10rpx;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.content .list .item .img-box {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.content .list .item .img-box image {
+  width: 100%;
+  height: 100%;
+  margin-left: 70rpx;
+  margin-top: -40rpx;
+  border-radius: 50%;
+}
+
+.content .list .item .title {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: -20rpx;
+  font-size: 30rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.content .list .item .price {
+  display: inline-block;
+  margin: 25rpx 0;
+  width: 200rpx;
+  height: 60rpx;
+  color: #fff;
+  line-height: 60rpx;
+  background-color: #f15a24;
+  border-radius: 30rpx;
+}
+
+.content .list .item .study {
+  color: #f15a24;
+  font-size: 28rpx;
+}

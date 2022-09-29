@@ -1,4 +1,54 @@
 <!--index.wxml-->
 <view class="container">
-  
+  <view class="top">
+		<view class="left">
+			管理类联考>
+		</view>
+		<view class="right">
+			<icon class="icon-small" type="search" size="20"></icon>
+			<image src="../../img/miao.png"></image>
+		</view>
+	</view>
+	<view class="tab">
+		<text>精选</text>
+		<view wx:for="{{ list }}">
+			<text>{{ item.title }}</text>
+		</view>
+	</view>
+	<swiper indicator-dots="#fff"
+        autoplay="true" interval="2000" duration="500" class="swipe">
+        <block wx:for="{{bannerList}}" wx:key="index">
+          <swiper-item>
+            <view class="img-box">
+							<image class="img" src="{{ item.banner_img }}"></image>
+						</view>
+          </swiper-item>
+        </block>
+  </swiper>
+	<view class="time">
+		<view>
+			<image src="../../img/shou.png"></image>
+		</view>
+		<text>距离考研还剩85天</text>
+	</view>
+	<view class="content">
+		<view class="title-box">
+			<text class="title">免费直播课</text>
+			<navigator class="all">查看全部></navigator>
+		</view>
+		<view class="list">
+			<view class="item"  wx:for="{{ freeList }}">
+				<view class="img-box">
+					<image src="https://lexuemiao.oss-cn-beijing.aliyuncs.com/uploads/image/20224wnkersk1659940001.png"></image>
+				</view>
+				<view class="title">
+					{{ item.title }}
+				</view>
+				<text class="price" wx:if="item.price === 0">免费</text>
+				<view class="study">
+					{{ item.sales_num }}已报名
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

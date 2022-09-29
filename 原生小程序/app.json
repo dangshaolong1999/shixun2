@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/index/index",
+    "pages/login/login",
+    "pages/my/my",
     "pages/logs/logs"
   ],
   "window": {
@@ -9,6 +10,28 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "weixin",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "img/tab_icons/home.png",
+        "selectedIconPath": "img/tab_icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "喵屋",
+        "iconPath": "img/tab_icons/cate.png",
+        "selectedIconPath": "img/tab_icons/cate-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/tab_icons/my.png",
+        "selectedIconPath": "img/tab_icons/my-active.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
