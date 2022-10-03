@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "优选首页",
+  "navigationBarBackgroundColor": "#eb4450",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "header1": "../../components/header1/header1",
+    "u-swiper": "../../uni_modules/vk-uview-ui/components/u-swiper/u-swiper",
+    "floor": "../../components/fllor/fllor"
+  }
+}

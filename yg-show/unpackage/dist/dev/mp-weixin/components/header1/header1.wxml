@@ -1,0 +1,1 @@
+<view class="content"><button bindtap="{{a}}">搜索</button></view>
