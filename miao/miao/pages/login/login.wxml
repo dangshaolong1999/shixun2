@@ -1,0 +1,52 @@
+<!--pages/login/login.wxml-->
+<view>
+	<view class="container">
+		<view class="bar">
+			<view class="back"></view>
+		</view>
+		<view class="img">
+			<image class="logo" src="../../images/download.png"></image>
+		</view>
+		<view class="from">
+			<view class="phone">
+				<view class="left">
+					<image class="phoneimg" src="../../images/phone.png"></image>
+				</view>
+				<view class="right">
+					<input class="weui-input" placeholder="请输入手机号"/>
+				</view>
+			</view>
+			<view class="password">
+				<view class="left">
+					<image class="phoneimg" src="../../images/success.png"></image>
+				</view>
+				<view class="right">
+					<input class="weui-input" placeholder="请输入密码"/>
+				</view>
+			</view>
+			<view class="code">
+				<view class="left">
+					<image class="phoneimg" src="../../images/success.png"></image>
+				</view>
+				<view class="right">
+					<input class="weui-input" placeholder="请输入验证码"/>
+				</view>
+				<view class="imgcode">
+					<image></image>
+				</view>
+			</view>
+			<view class="button">
+				<button class="login">登录</button>
+			</view>
+		</view>
+		<view class="footer">
+			<view class="left">
+				<navigator>忘记密码？</navigator>
+			</view>
+			<view class="right">
+				<navigator>注册/</navigator>
+				<navigator>验证码登录</navigator>
+			</view>
+		</view>
+	</view>
+</view>
