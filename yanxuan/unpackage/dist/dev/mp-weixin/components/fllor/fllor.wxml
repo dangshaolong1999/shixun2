@@ -1,0 +1,1 @@
+<view wx:for="{{a}}" wx:for-item="item" wx:key="d" class="content1"><view class=""><image src="{{item.a}}" class="img"></image></view><view class="grid"><view wx:for="{{item.b}}" wx:for-item="obj" wx:key="b"><image src="{{obj.a}}"></image></view><view wx:for="{{item.c}}" wx:for-item="obj" wx:key="b"><image src="{{obj.a}}" mode=""></image></view></view></view>
