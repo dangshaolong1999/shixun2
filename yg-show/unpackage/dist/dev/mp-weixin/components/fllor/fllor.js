@@ -28,19 +28,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     a: common_vendor.f($props.list, (item, index, i0) => {
       return {
         a: item.floor_title.image_src,
-        b: common_vendor.f(item.product_list.slice(0, 1), (obj, index2, i1) => {
+        b: common_vendor.f(item.product_list, (obj, index2, i1) => {
           return {
             a: obj.image_src,
             b: index2
           };
         }),
-        c: common_vendor.f(item.product_list.slice(1, 5), (obj, index2, i1) => {
-          return {
-            a: obj.image_src,
-            b: index2
-          };
-        }),
-        d: index
+        c: index
       };
     })
   };

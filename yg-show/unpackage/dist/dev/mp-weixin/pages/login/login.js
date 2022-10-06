@@ -1,5 +1,7 @@
 "use strict";
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
@@ -15,27 +17,33 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var common_vendor = require("../../common/vendor.js");
 const _sfc_main = {
   setup() {
     const data = common_vendor.reactive({
-      list: {}
+      userInfo: {}
     });
-    common_vendor.onShow(() => {
-      data.list = common_vendor.index.getStorageSync("userInfo") || {};
+    const getUserInfo = (e) => {
+      console.log(e, 666);
+      data.userInfo = e.detail.userInfo;
+      common_vendor.index.setStorage({
+        key: "userInfo",
+        data: data.userInfo
+      });
+      common_vendor.index.navigateBack({
+        delta: 1
+      });
+    };
+    return __spreadProps(__spreadValues({}, common_vendor.toRefs(data)), {
+      getUserInfo
     });
-    console.log(data.list);
-    return __spreadValues({}, common_vendor.toRefs(data));
   }
 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return common_vendor.e({
-    a: _ctx.list.avatarUrl
-  }, _ctx.list.avatarUrl ? {
-    b: _ctx.list.avatarUrl,
-    c: _ctx.list.avatarUrl,
-    d: common_vendor.t(_ctx.list.nickName)
-  } : {});
+  return {
+    a: common_vendor.o((...args) => $setup.getUserInfo && $setup.getUserInfo(...args))
+  };
 }
-var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/\u738B\u660E\u946B/Desktop/\u738B\u660E\u946Bp8-\u671F\u672B\u8003\u8BD5-A\u573A/yg-show/pages/myin/myin.vue"]]);
+var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/\u738B\u660E\u946B/Desktop/\u738B\u660E\u946Bp8-\u671F\u672B\u8003\u8BD5-A\u573A/yg-show/pages/login/login.vue"]]);
 wx.createPage(MiniProgramPage);

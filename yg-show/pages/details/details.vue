@@ -17,36 +17,36 @@
 			</view>
 		</view>
 		<view class="goods_info">
-		  <view class="goods_info_title">图文详情</view>
-		  <view class="goods_info_content">
-		    <!-- 富文本 -->
-		    <!-- {{goodsObj.goods_introduce}} -->
-			<view v-html="list.goods_introduce"></view>
-		    <!-- <rich-text nodes="{{list.goods_introduce}}"></rich-text> -->
-		  </view>
+			<view class="goods_info_title">图文详情</view>
+			<view class="goods_info_content">
+				<!-- 富文本 -->
+				<!-- {{goodsObj.goods_introduce}} -->
+				<view v-html="list.goods_introduce"></view>
+				<!-- <rich-text nodes="{{list.goods_introduce}}"></rich-text> -->
+			</view>
 		</view>
-		
+
 		<view class="btm_tool">
-		  <view class="tool_item">
-		    <view class="iconfont icon-kefu"></view>
-		    <view>客服</view>
-		    <button open-type="contact"></button>
-		  </view>
-		  <view class="tool_item">
-		    <view class="iconfont icon-yixianshi-"></view>
-		    <view>分享</view>
-		    <button open-type="share"></button>
-		  </view>
-		  <navigator open-type="switchTab" url="/pages/cart/index" class="tool_item">
-		    <view class="iconfont icon-gouwuche"></view>
-		    <view>购物车</view>
-		  </navigator>
-		  <view class="tool_item btn_cart " bindtap="handleCartAdd">
-		  加入购物车
-		  </view>
-		  <view class="tool_item btn_buy">
-		    立即购买
-		  </view>
+			<view class="tool_item">
+				<view class="iconfont icon-kefu"></view>
+				<view>客服</view>
+				<button open-type="contact"></button>
+			</view>
+			<view class="tool_item">
+				<view class="iconfont icon-yixianshi-"></view>
+				<view>分享</view>
+				<button open-type="share"></button>
+			</view>
+			<navigator open-type="switchTab" @click="handleCartTiao" url="/pages/cart/index" class="tool_item">
+				<view class="iconfont icon-gouwuche"></view>
+				<view>购物车</view>
+			</navigator>
+			<view class="tool_item btn_cart " @click="handleCartAdd">
+				加入购物车
+			</view>
+			<view class="tool_item btn_buy">
+				立即购买
+			</view>
 		</view>
 	</view>
 </template>
@@ -56,7 +56,11 @@
 		detail
 	} from '../../http/api/api'
 	import {
-		onLoad
+		detailslist,
+		Carousel
+	} from '../../http/interface'
+	import {
+		onLoad,onShow
 	} from "@dcloudio/uni-app";
 	import {
 		reactive,
@@ -64,29 +68,65 @@
 	} from 'vue'
 	export default {
 		setup() {
-			const data = reactive({
-				id: null,
+			const data: {
+				id: string,
+				img: Carousel,
+				list: detailslist,
+				isCollect: boolean,
+				info: []
+			} = reactive({
+				id: '0',
 				img: [],
-				list: [],
-				isCollect:false
+				list: {},
+				isCollect: false,
+				info: []
 			})
 			onLoad((option) => {
 				console.log(option.id);
 				data.id = option.id
 				detail(data.id).then(res => {
-					console.log(res.message);
+					
 					data.img = res.message.pics
 					data.list = res.message
+					// console.log(data.list.goods_id,1212311);
 				})
 			});
 			const handleCollect = () => {
-				console.log(1);
 				data.isCollect = !data.isCollect
+			}
+			//添加购物车
+			const handleCartAdd = () => {
+				data.info = uni.getStorageSync('info') || [];
+				console.log(data.info);
+				let index = data.info.findIndex(item => item.goods_id == data.list.goods_id)
+				console.log(index);
+				if (index == -1) {
+					data.list.num = 1;
+					data.list.checked = false;
+					data.info.push(data.list)
+				} else {
+					data.info[index].num++
+				}
+				uni.setStorage({
+					key: 'info',
+					data: data.info,
+				});
+				uni.showToast({
+					title: '加入成功',
+					icon: 'success'
+				});
+			}
+			const handleCartTiao = () => {
+				uni.reLaunch({
+					url: '../shopping/shopping'
+				});
 			}
 
 			return {
 				...toRefs(data),
-				handleCollect
+				handleCollect,
+				handleCartAdd,
+				handleCartTiao
 			}
 		}
 	}
@@ -94,88 +134,97 @@
 
 <style lang="scss">
 	.btm_tool {
-	  border-top: 1rpx solid #ccc;
-	  position: fixed;
-	  left: 0;
-	  bottom: 0;
-	  width: 100%;
-	  height: 90rpx;
-	  background-color: #fff;
-	  display: flex;
+		border-top: 1rpx solid #ccc;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 90rpx;
+		background-color: #fff;
+		display: flex;
 	}
+
 	.btm_tool .tool_item {
-	  flex: 1;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  font-size: 24rpx;
-	  position: relative;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-size: 24rpx;
+		position: relative;
 	}
+
 	.btm_tool .tool_item button {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
 	}
+
 	.btm_tool .btn_cart {
-	  flex: 2;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  background-color: #ffa500;
-	  color: #fff;
-	  font-size: 30rpx;
-	  font-weight: 600;
+		flex: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #ffa500;
+		color: #fff;
+		font-size: 30rpx;
+		font-weight: 600;
 	}
+
 	.btm_tool .btn_buy {
-	  flex: 2;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  background-color: #eb4450;
-	  color: #fff;
-	  font-size: 30rpx;
-	  font-weight: 600;
+		flex: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #eb4450;
+		color: #fff;
+		font-size: 30rpx;
+		font-weight: 600;
 	}
 
 	.goods_name_row {
-	  border-top: 5rpx solid #dedede;
-	  border-bottom: 5rpx solid #dedede;
-	  padding: 10rpx 0;
-	  display: flex;
+		border-top: 5rpx solid #dedede;
+		border-bottom: 5rpx solid #dedede;
+		padding: 10rpx 0;
+		display: flex;
 	}
+
 	.goods_name_row .goods_name {
-	  flex: 5;
-	  color: #000;
-	  font-size: 30rpx;
-	  padding: 0 10rpx;
-	  display: -webkit-box;
-	  overflow: hidden;
-	  -webkit-box-orient: vertical;
-	  -webkit-line-clamp: 2;
+		flex: 5;
+		color: #000;
+		font-size: 30rpx;
+		padding: 0 10rpx;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
 	}
+
 	.goods_name_row .goods_collect {
-	  flex: 1;
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	  border-left: 1rpx solid #000;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-left: 1rpx solid #000;
 	}
+
 	.goods_name_row .goods_collect .icon-shoucang1 {
-	  color: orangered;
+		color: orangered;
 	}
+
 	.goods_info .goods_info_title {
-	  font-size: 32rpx;
-	  color: var(--themeColor);
-	  font-weight: 600;
-	  padding: 20rpx;
+		font-size: 32rpx;
+		color: var(--themeColor);
+		font-weight: 600;
+		padding: 20rpx;
 	}
+
 	.price {
 		color: red;
 		padding: 10rpx 20rpx;

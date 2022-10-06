@@ -5,7 +5,8 @@
         "pages/shopping/shopping",
         "pages/myin/myin",
         "pages/search/search",
-        "pages/details/details"
+        "pages/details/details",
+        "pages/login/login"
     ],
     "window": {
         "navigationBarTextStyle": "black",

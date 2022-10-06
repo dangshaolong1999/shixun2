@@ -19,14 +19,18 @@
 		}, {
 			"path": "pages/shopping/shopping",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "购物车",
+				"navigationBarBackgroundColor": "#eb4450",
+				"navigationBarTextStyle": "white",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
 			"path": "pages/myin/myin",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "个人中心",
+				"navigationBarBackgroundColor": "#eb4450",
+				"navigationBarTextStyle": "white",
 				"enablePullDownRefresh": false
 			}
 
@@ -53,6 +57,17 @@
 		    }
 		    
 		}
+        ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#eb4450",
+				"navigationBarTextStyle": "white",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"easycom": {
 		"autoscan": true
